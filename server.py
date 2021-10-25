@@ -109,7 +109,7 @@ async def translation(*,text:str = Form(None),id:str = Form(None),lang:str = For
         # try:
         translation_data = {"text":text}
         log.info({"msg": "请求翻译接口"})
-        translation_result = requests.post(API.get("nmt"),data=translation_data).json()
+        translation_result = json.loads(requests.post(API.get("nmt"),data=translation_data).text)
         log.info({"msg": "翻译成功"})
         result = {"code": "1",  "msg": "获取机器翻译结果成功", "nmt_result":translation_result}
         return result
