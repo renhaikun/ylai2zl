@@ -42,9 +42,12 @@ class mongo_cls ():
         elif env == "product":
             client = MongoClient(self.USER_PRO + urllib.parse.quote_plus(self.PASSWORD_PRO) + self.HOST_PRO)
             return client
+        elif env == "bendi":
+            client = MongoClient(self.USER_PRO + urllib.parse.quote_plus(self.PASSWORD_PRO) + self.HOST_PRO)
+            return client
         else:
-            assert  env == "bendi"
-            client = MongoClient(self.USER_BENDI + urllib.parse.quote_plus(self.PASSWORD_BENDI) + self.HOST_BENDI)["kg_db"]["video"]
+            assert  env == "mini"
+            client = MongoClient("mongodb://oa:BUelQqmHm1RW45D!bJ3AXam8Iz1k0f54ZI@192.168.110.16:27017/oa")["oa"]["video"]
             return client
 
 

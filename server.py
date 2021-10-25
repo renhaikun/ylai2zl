@@ -20,16 +20,18 @@ from bson import ObjectId
 
 modbcls = mongo_cls()
 
-if os.environ.get("env") == "test":
+if sys.argv[1] == "test":
     API = api_config.test_config
-elif os.environ.get("env") == "product":
+elif sys.argv[1]  == "product":
     API = api_config.pro_config
+elif sys.argv[1]  == "mini" :
+    API = api_config.mini_config
 else:
-    assert os.environ.get("env") == "bendi"
+    assert sys.argv[1]  == "bendi"
     API = api_config.bendi_config
 
-db = modbcls.mogo_cl(os.environ.get("env"))
-log = YULI_LOG("ylai2zl",log_path="./ylai2zllogs/ylai2zl.log")
+db = modbcls.mogo_cl(sys.argv[1])
+log = YULI_LOG("ylai2zl")
 app = FastAPI()
 
 
