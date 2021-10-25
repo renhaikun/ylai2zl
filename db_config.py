@@ -47,8 +47,9 @@ class mongo_cls ():
             return client
         else:
             assert  env == "mini"
-            client = MongoClient("mongodb://oa:BUelQqmHm1RW45D!bJ3AXam8Iz1k0f54ZI@192.168.110.16:27017/oa")["oa"]["video"]
+            client = MongoClient("mongodb://oa:BUelQqmHm1RW45D!bJ3AXam8Iz1k0f54ZI@192.168.0.245:27017/oa")["oa"]["video"]
             return client
+
 
 
 if __name__ == '__main__':
