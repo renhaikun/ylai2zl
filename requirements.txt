@@ -1,0 +1,13 @@
+numpy==1.18.1
+pandas==1.0.1
+gevent
+fastapi
+uvicorn
+python-multipart
+gunicorn
+w3lib
+opencc
+uvloop
+httptools
+aiofiles
+pymongo
