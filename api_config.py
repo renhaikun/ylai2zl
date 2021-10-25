@@ -30,7 +30,7 @@ class api_config():
     }
 
     mini_config = {
-        "video": "http://192.168.110.16:8760/videos_sum",
-        "nmt": "http://192.168.110.16:2222/translation",
+        "video": "http://127.0.0.1:8760/videos_sum",
+        "nmt": "http://127.0.0.1:2222/translation",
 
     }
