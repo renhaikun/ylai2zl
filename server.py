@@ -106,17 +106,17 @@ async def upload(*,file: UploadFile = File(...)):
 async def translation(*,text:str = Form(None),id:str = Form(None),lang:str = Form(None),request: Request):
     if text!=None and id ==None:
         log.info({"msg": "执行文本翻译"})
-        try:
-            translation_data = {"text":text}
-            log.info({"msg": "请求翻译接口"})
-            translation_result = requests.post(API.get("nmt"),data=translation_data).json()
-            log.info({"msg": "翻译成功"})
-            result = {"code": "1",  "msg": "获取机器翻译结果成功", "nmt_result":translation_result}
-            return result
-        except:
-            log.info({"msg": "翻译失败"})
-            result = {"code": "0",  "msg": "获取机器翻译结果失败，翻译算法出错，请联系开发人员反馈","nmt_result":""}
-            return result
+        # try:
+        translation_data = {"text":text}
+        log.info({"msg": "请求翻译接口"})
+        translation_result = requests.post(API.get("nmt"),data=translation_data).json()
+        log.info({"msg": "翻译成功"})
+        result = {"code": "1",  "msg": "获取机器翻译结果成功", "nmt_result":translation_result}
+        return result
+        # except:
+        #     log.info({"msg": "翻译失败"})
+        #     result = {"code": "0",  "msg": "获取机器翻译结果失败，翻译算法出错，请联系开发人员反馈","nmt_result":""}
+        #     return result
     else:
         log.info({"msg": "执行查询视频文本翻译"})
         assert id != None
