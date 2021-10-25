@@ -70,7 +70,7 @@ async def upload(*,file: UploadFile = File(...)):
     log.info({"msg":"获取视频文件:{}".format(file.filename)})
     # db.close()
     log.info({"msg":"视频存储MongoDB_ID:{}".format(str(_id))})
-    data_path = "usr/app/video/movies"
+    data_path = "/usr/app/video/movies"
     log.info({"msg": "视频存储路径:{}".format(data_path)})
     if not os.path.exists("data_path"):
          log.info({"msg": "创建视频目录:{}".format(data_path)})
