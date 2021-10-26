@@ -69,6 +69,7 @@ async def upload(*,file: UploadFile = File(...)):
 
     log.info({"msg":"获取视频文件:{}".format(file.filename)})
     # db.close()
+    db.insert_one(up_data)
     log.info({"msg":"视频存储MongoDB_ID:{}".format(str(_id))})
     data_path = "/usr/app/video/movies"
     log.info({"msg": "视频存储路径:{}".format(data_path)})
