@@ -153,7 +153,7 @@ async def download(*,id:str = Form(...)):
         # if file_type in file_type_list:
         try:
             log.info({"msg": "查询文件id : {}".format(id)})
-            data_path = "./video/results/{}/video_all.zip".format(str(id))
+            data_path = "/usr/app/video/results/{}/video_all.zip".format(str(id))
             if os.path.exists(data_path):
                 log.info({"msg": "查询文件成功"})
                 with open(data_path, "rb") as f:
