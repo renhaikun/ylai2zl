@@ -78,11 +78,11 @@ async def upload(*,file: UploadFile = File(...)):
     log.info({"msg":"读取视频文件:{}".format(data_path)})
     data = await file.read()
     video_name = f'{_id}.{meta_type}'
-    # path_video = f'{config.VIDEO_PATH}/{movies}/{_id}.{suffix}'
+    path_video = f'{data_path}/{video_name}'
     with open("{}/{}".format(data_path,video_name),"wb") as f:
         log.info({"msg":"视频文件写入，文件名:{}".format(video_name)})
         f.write(data)
-    video_r_data = {"id":str(id),"video_path":"{}/{}".format(data_path,video_name)}
+    video_r_data = {"id":str(id),"video_path":path_video}
     try:
         log.info({"msg":"请求视频算法接口"})
         statu_video_post = requests.post(API.get("video"),data=video_r_data).status_code
